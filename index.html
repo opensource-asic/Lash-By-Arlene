@@ -171,21 +171,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('lash2.jpg');
+            background-image: url('lash2.jpg'); /* NOTE: Image file not provided, assumed to exist */
             background-size: cover;
             background-position: center;
             opacity: 0.35;
             z-index: 0;
-        }
-
-        header::after {
-            content: '✨';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 2em;
-            animation: float 3s ease-in-out infinite;
-            z-index: 2;
         }
 
         header::after {
@@ -215,7 +205,7 @@
 
         h1 {
             font-family: 'Qwitcher Grypen', cursive;
-            font-size: 5em;
+            font-size: 7em;
             color: #6b4971;
             margin-bottom: 15px;
             font-weight: 700;
@@ -225,7 +215,7 @@
         }
 
         .subtitle {
-            font-size: 1.3em;
+            font-size: 1.4em;
             color: #6B5470;
             font-style: italic;
             letter-spacing: 1px;
@@ -236,7 +226,7 @@
 
         .flower-divider {
             text-align: center;
-            font-size: 2.0em;
+            font-size: 2.5em;
             margin: 35px 0;
             background: linear-gradient(135deg, #6B5470, #502a50);
             -webkit-background-clip: text;
@@ -255,7 +245,7 @@
         }
 
         #about {
-            background-image: url("us.png");
+            background-image: url("us.png"); /* NOTE: Image file not provided, assumed to exist */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -408,7 +398,7 @@
         }
 
         #book {
-            background-image: url("book.png");
+            background-image: url("book.png"); /* NOTE: Image file not provided, assumed to exist */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -576,31 +566,81 @@
             border: 3px solid rgba(215, 185, 215, 0.4);
         }
         
-
+        /* ------------------------------------------------ */
+        /* START: MOBILE RESPONSIVENESS ADJUSTMENTS (max-width: 768px) */
+        /* ------------------------------------------------ */
         @media (max-width: 768px) {
+            .container {
+                padding: 10px; /* Reduce container padding */
+            }
+
+            header {
+                padding: 50px 15px; /* Reduce header padding */
+                margin-bottom: 30px;
+            }
+
             h1 {
-                font-size: 2.8em;
+                font-size: 4em; /* Adjust main title size for smaller screens */
+            }
+            
+            .subtitle {
+                font-size: 1.1em; /* Make subtitle smaller */
             }
 
-            .service-card {
-                padding: 25px;
-            }
-
-            .modal-content {
-                margin: 20px;
-                padding: 30px;
+            h2 {
+                font-size: 2.5em; /* Scale down section headers */
+                margin-bottom: 20px;
+                padding-bottom: 15px;
             }
 
             .section {
-                padding: 30px 25px;
+                padding: 30px 15px; /* Reduce padding for sections */
+                margin-bottom: 20px;
+            }
+
+            .about-content, .contact-info p {
+                font-size: 1em; /* Smaller body text for better reading */
+            }
+
+            /* Services Grid Stacking */
+            .services-grid {
+                flex-direction: column; /* Stack service cards vertically */
+                gap: 20px; /* Reduce gap */
+            }
+
+            .service-card {
+                flex: 0 1 100%; /* Make card take full width */
+            }
+
+            /* Call to Action Buttons */
+            .cta-button {
+                display: block; /* Make CTA buttons stack vertically */
+                width: 90%;
+                margin: 15px auto; /* Add vertical margin */
+                padding: 15px 30px;
+                font-size: 1.2em;
+            }
+
+            /* Map Size */
+            .map-container iframe {
+                height: 300px; /* Make the map iframe smaller */
+            }
+
+            /* Modal Size */
+            .modal-content {
+                margin: 20px auto;
+                padding: 30px 15px;
+                max-width: 95%; /* Adjust maximum width for very small screens */
             }
         }
+        /* ------------------------------------------------ */
+        /* END: MOBILE RESPONSIVENESS ADJUSTMENTS */
+        /* ------------------------------------------------ */
     </style>
 </head>
 <body>
     <div class="floral-bg"></div>
     
-    <!-- Hamburger Menu -->
     <div class="hamburger-menu" onclick="toggleMenu()">
         <div class="hamburger-icon">
             <span></span>
@@ -609,7 +649,6 @@
         </div>
     </div>
 
-    <!-- Dropdown Menu -->
     <div class="dropdown-menu" id="dropdownMenu">
         <a href="javascript:void(0)" onclick="scrollToSection('home')">🏠 Home</a>
         <a href="javascript:void(0)" onclick="scrollToSection('about')">💝 About Us</a>
@@ -619,7 +658,7 @@
     </div>
     
     <div class="container">
-        <header id="home">>
+        <header id="home">
             <span class="header-overlay">💕</span>
             <h1>✨ Lash by Arlene ✨</h1>
             <p class="subtitle">Where Every Lash Tells a Story • Bloomingdale, IL</p>
@@ -644,8 +683,7 @@
             <h2>✨ Our Services</h2>
             <div class="services-grid">
                 <div class="service-card" onclick="toggleService(this)">
-                    <img src="classic.png" alt="Classic Lashes" class="service-image">
-                    <div class="service-header">
+                    <img src="classic.png" alt="Classic Lashes" class="service-image"> <div class="service-header">
                         <div class="service-name">Classic Lashes</div>
                         <div class="view-price-btn">
                             <span>View Price</span>
@@ -659,8 +697,7 @@
                 </div>
 
                 <div class="service-card" onclick="toggleService(this)">
-                    <img src="volumel.png" alt="Volume Lashes" class="service-image">
-                    <div class="service-header">
+                    <img src="volumel.png" alt="Volume Lashes" class="service-image"> <div class="service-header">
                         <div class="service-name">Volume Lashes</div>
                         <div class="view-price-btn">
                             <span>View Price</span>
@@ -674,8 +711,7 @@
                 </div>
 
                 <div class="service-card" onclick="toggleService(this)">
-                    <img src="mega.png" alt="Mega Volume" class="service-image">
-                    <div class="service-header">
+                    <img src="mega.png" alt="Mega Volume" class="service-image"> <div class="service-header">
                         <div class="service-name">Mega Volume</div>
                         <div class="view-price-btn">
                             <span>View Price</span>
@@ -730,10 +766,9 @@
         </footer>
     </div>
 
-    <!-- Client Agreement Modal -->
     <div id="agreementModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeAgreement()">&times;</span>
+            <span class="close" onclick="closeAgreement()">×</span>
             <h2 style="color: #B89BC9; text-align: center;">Client Service Agreement & Waiver</h2>
             
             <div class="agreement-content">
@@ -829,14 +864,14 @@
             hamburger.classList.remove('active');
         }
 
-        // Close menu when clicking outside
+        // Close menu when clicking outside (Updated for better mobile UX)
         document.addEventListener('click', function(event) {
             const menu = document.getElementById('dropdownMenu');
             const hamburger = document.querySelector('.hamburger-menu');
             
-            if (!hamburger.contains(event.target) && !menu.contains(event.target)) {
-                menu.classList.remove('active');
-                hamburger.classList.remove('active');
+            // Check if the menu is active AND the click is neither on the menu nor the button
+            if (menu.classList.contains('active') && !hamburger.contains(event.target) && !menu.contains(event.target)) {
+                closeMenu();
             }
         });
 
@@ -872,5 +907,7 @@
         }
     </script>
 </body>
-
 </html>
+
+
+
