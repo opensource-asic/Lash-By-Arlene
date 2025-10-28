@@ -803,8 +803,12 @@
     </div>
 
     <script>
-      
-
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            const hamburger = document.querySelector('.hamburger-menu');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
         function closeMenu() {
             const menu = document.getElementById('dropdownMenu');
             const hamburger = document.querySelector('.hamburger-menu');
@@ -857,4 +861,5 @@
 </body>
 
 </html>
+
 
