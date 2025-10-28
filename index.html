@@ -130,19 +130,7 @@
                 radial-gradient(circle at 60% 30%, rgba(245, 230, 211, 0.3) 0%, transparent 50%);
         }
 
-        .sparkle {
-            position: fixed;
-            font-size: 20px;
-            opacity: 0;
-            animation: sparkle 3s infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1) rotate(180deg); }
-        }
+      
 
         .container {
             position: relative;
@@ -152,7 +140,7 @@
             padding: 20px;
         }
 
-        header {
+           header {
             text-align: center;
             padding: 70px 20px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 245, 255, 0.98) 100%);
@@ -162,6 +150,11 @@
             border: 3px solid rgba(215, 185, 215, 0.5);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Pushes text to bottom */
+            min-height: 400px; /* Adjust based on your image */
+
         }
 
         header::before {
@@ -171,41 +164,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('lash2.jpg'); /* NOTE: Image file not provided, assumed to exist */
-            background-size: cover;
-            background-position: center;
-            opacity: 0.35;
+            background-image: url("mp.jpg"); /* Put your image URL here */
+            background-size: contain; /* Shows full image without cropping */
+            background-repeat: no-repeat;
+            background-position: center top; /* Positions image at top */
+            opacity: 1.0; /* Full brightness - no dimming */
             z-index: 0;
-        }
-
-        header::after {
-            content: '✨';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 2em;
-            animation: float 3s ease-in-out infinite;
-            z-index: 2;
-        }
-
-        .header-overlay {
-            content: '💕';
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 2em;
-            animation: float 3s ease-in-out infinite 1.5s;
-            z-index: 2;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
         }
 
         h1 {
             font-family: 'Qwitcher Grypen', cursive;
-            font-size: 2em;
+            font-size: 3.5em;
             color: #6b4971;
             margin-bottom: 15px;
             font-weight: 700;
@@ -333,7 +302,7 @@
         }
 
         .service-card::before {
-            content: '✨';
+            content: '📜';
             position: absolute;
             top: 15px;
             right: 15px;
@@ -580,7 +549,7 @@
             }
 
             h1 {
-                font-size: 4em; /* Adjust main title size for smaller screens */
+                font-size: 2.5em; /* Adjust main title size for smaller screens */
             }
             
             .subtitle {
@@ -651,23 +620,22 @@
 
     <div class="dropdown-menu" id="dropdownMenu">
         <a href="javascript:void(0)" onclick="scrollToSection('home')">🏠 Home</a>
-        <a href="javascript:void(0)" onclick="scrollToSection('about')">💝 About Us</a>
-        <a href="javascript:void(0)" onclick="scrollToSection('services')">✨ Our Services</a>
-        <a href="javascript:void(0)" onclick="scrollToSection('book')">💕 Book Appointment</a>
+        <a href="javascript:void(0)" onclick="scrollToSection('about')">🌸 About Us</a>
+        <a href="javascript:void(0)" onclick="scrollToSection('services')">📜 Our Services</a>
+        <a href="javascript:void(0)" onclick="scrollToSection('book')">🗓️ Book Appointment</a>
         <a href="javascript:void(0)" onclick="scrollToSection('find')">📍 Find Us</a>
     </div>
     
     <div class="container">
         <header id="home">
-            <span class="header-overlay">💕</span>
-            <h1>✨ Lash by Arlene ✨</h1>
+            <h1> Lash by Arlene </h1>
             <p class="subtitle">Where Every Lash Tells a Story • Bloomingdale, IL</p>
         </header>
 
         <div class="flower-divider">🌸 ❀ 💕 ❀ 🌸</div>
 
         <section class="section" id="about">
-            <h2>💝 About Us</h2>
+            <h2>🌸 About Us</h2>
             <div class="about-content">
                 <p>Welcome to <span class="highlight">Lash by Arlene</span>, your premier destination for luxurious lash extensions in Bloomingdale, IL! We're passionate about enhancing your natural beauty and helping you feel absolutely gorgeous every single day.</p>
                 
@@ -680,7 +648,7 @@
         <div class="flower-divider">🌸 ❀ 💕 ❀ 🌸</div>
 
         <section class="section" id="services">
-            <h2>✨ Our Services</h2>
+            <h2>📜 Our Services</h2>
             <div class="services-grid">
                 <div class="service-card" onclick="toggleService(this)">
                     <img src="classic.png" alt="Classic Lashes" class="service-image"> <div class="service-header">
@@ -729,10 +697,10 @@
         <div class="flower-divider">🌸 ❀ 💕 ❀ 🌸</div>
 
         <section class="section" id="book">
-            <h2>💕 Book Your Appointment</h2>
+            <h2>🗓️ Book Your Appointment</h2>
             <div style="background: linear-gradient(135deg, #FAF5FF 0%, #FFF8F0 100%); padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 3px solid #D7B9D7; text-align: center;">
-                <p style="font-size: 1.3em; color: #B89BC9; font-weight: bold; margin-bottom: 10px;">📋 Important Notice</p>
-                <p style="font-size: 1.15em; color: #6a5a6a;">Before booking your appointment, please read and sign our <strong style="color: #B89BC9;">Client Agreement Form</strong> below.</p>
+                <p style="font-size: 1.3em; color: #B89BC9; font-weight: bold; margin-bottom: 10px;">📋 WAIVER</p>
+                <p style="font-size: 1.15em; color: #6a5a6a;">Before booking your appointment, please read and sign our <strong style="color: #B89BC9;">Liability waiver Form</strong> below.</p>
             </div>
             <div class="contact-info">
                 <p><strong>📞 Call or Text:</strong> <a href="tel:7086553583" style="color: #B89BC9; text-decoration: none; font-weight: bold;">708-655-3583</a></p>
@@ -742,7 +710,7 @@
             </div>
             <div style="text-align: center; margin-top: 35px;">
                 <a href="tel:7086553583" class="cta-button">📞 Call to Book Now</a>
-                <button onclick="openAgreement()" class="cta-button">📋 View Client Agreement</button>
+                <button onclick="openAgreement()" class="cta-button">📋 View Liability Waiver</button>
             </div>
         </section>
 
@@ -760,7 +728,7 @@
 
 
         <footer>
-            <p style="color: #3a2a3d; font-size: 2.0em; font-weight: bold; font-family: 'Qwitcher Grypen', cursive;">✨ Lash by Arlene ✨</p>
+            <p style="color: #3a2a3d; font-size: 2.0em; font-weight: bold; font-family: 'Qwitcher Grypen', cursive;"> Lash by Arlene </p>
             <p style="margin-top: 8px; color: #9d7e9d; font-size: 1.1em;">Where Beauty Meets Elegance</p>
             <p style="margin-top: 15px; color: #999;">© 2025 Lash by Arlene. All rights reserved.</p>
         </footer>
@@ -769,7 +737,7 @@
     <div id="agreementModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeAgreement()">×</span>
-            <h2 style="color: #B89BC9; text-align: center;">Client Service Agreement & Waiver</h2>
+            <h2 style="color: #B89BC9; text-align: center;">Liability Waiver</h2>
             
             <div class="agreement-content">
                 <h3>1. Acknowledgment of Service</h3>
@@ -835,27 +803,7 @@
     </div>
 
     <script>
-        // Add sparkles randomly
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.textContent = Math.random() > 0.5 ? '✨' : '💕';
-            sparkle.style.left = Math.random() * 100 + '%';
-            sparkle.style.top = Math.random() * 100 + '%';
-            document.body.appendChild(sparkle);
-            
-            setTimeout(() => sparkle.remove(), 3000);
-        }
-
-        setInterval(createSparkle, 2000);
-
-        // Hamburger Menu Functions
-        function toggleMenu() {
-            const menu = document.getElementById('dropdownMenu');
-            const hamburger = document.querySelector('.hamburger-menu');
-            menu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        }
+      
 
         function closeMenu() {
             const menu = document.getElementById('dropdownMenu');
@@ -907,4 +855,5 @@
         }
     </script>
 </body>
+
 </html>
